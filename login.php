@@ -1,22 +1,20 @@
-<?php
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>login</title>
+    <link href="./styles/main.css" rel="stylesheet">
+  </head>
+  <!--<div id="carga">
+    <img src="images/carga.gif"/>
+  </div>-->
+  <body onload="setTimeout(cargar, 1200);">
 
-function Volumen($num1,$num2){
-    return $total=3.14159*$num1*$num1*$num2;    
-}
+    <div class="ia-workspace">
+        <?php include("navbar.php"); ?>
 
-if(!ISSET($_GET['Volumen'])){
-?>
-
-<form id="Volumen" action="#" method="GET">
-            <input type="text" name="num1" required/>
-            <input type="text" name="num2" required/>
-            <input type="submit" name="Volumen" />
-</form>
-
-    <?php
-    }
-?>
-
-
-
-
+        <?php include("footer.php"); ?>
+      </div>
+</body>
+</html>
