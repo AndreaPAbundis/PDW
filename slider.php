@@ -22,6 +22,16 @@
     .swiper-container img{
       width: 60%;
     }
+    .swiper-pagination{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      height: 32px;
+      align-items: center;
+    }
+    .swiper-pagination-clickable .swiper-pagination-bullet{
+      margin: 0 4px;
+    }
     .swiper-slide {
       text-align: center;
       font-size: 18px;
@@ -69,11 +79,11 @@
       </div>
     </div>
     <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
     <!-- Add Arrows -->
     <!--<div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>-->
   </div>
+  <div class="swiper-pagination"></div>
 
   <!-- Swiper JS -->
   <script src="swiper/dist/js/swiper.min.js"></script>

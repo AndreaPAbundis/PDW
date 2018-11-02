@@ -53,8 +53,8 @@
    		 <h1>_CLIENTES</h1>
 		<?php include("slider.php"); ?>
 		</div>
-        <?php include("footer.php"); ?>
-	  </div>
+    <?php include("footer.php"); ?>
+	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 	<script src="scripts/ripple.js"></script>
 	<script src="scripts/header.js"></script>

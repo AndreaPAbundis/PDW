@@ -4,16 +4,16 @@
       </a>
       <nav role="navigation">
         <ul>
-          <a href="#nosotros">
+          <a href="index.php#nosotros">
             <li>NOSOTROS</li>
           </a>
-          <a href="#servicios">
+          <a href="index.php#servicios">
             <li>SERVICIOS</li>
           </a>
-          <a href="#clientes">
+          <a href="index.php#clientes">
             <li>CLIENTES</li>
           </a>
-          <a href="">
+          <a href="contact.php">
             <li>CONTACTO</li>
           </a>
         </ul>

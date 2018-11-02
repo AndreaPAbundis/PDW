@@ -10,6 +10,18 @@ footer{
     justify-content: space-between;
     .footer-info{
       width: 33%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      img{
+        width: 50px;
+        height: 50px;
+      }
+      label{
+        width: 100%;
+        justify-content: center;
+        margin: 8px 0 0 0;
+      }
     }
     .footer-links{
       width: 33%;
@@ -32,6 +44,9 @@ footer{
     .footer-terms-social{
       width: 33%;
       padding-left: 16px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
       .terms-privacy{
         width: 100%;
         display: flex;
@@ -40,15 +55,17 @@ footer{
         a{
           width: 100%;
           text-transform: capitalize;
+          text-align: center;
         }
         label{
           width: 100%;
+          justify-content: center;
         }
       }
       .social-networks{
         width: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         a{
           width: 20%;
           img{

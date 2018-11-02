@@ -3,7 +3,7 @@ body {
 }
 
 .nosotros_content {
-    margin: 2rem;
+    margin: 40px;
     display: inline-flex;
     .img {
         width: 50%;
@@ -25,7 +25,7 @@ body {
 }
 
 .servicios-content {
-    padding: 2rem;
+    padding: 40px;
     width: 100%;
     text-align: center;
     background-color: #EAEAEA;
@@ -47,4 +47,6 @@ body {
     margin-top: 2rem;
     text-align: center;
     width: 100%;
+    margin-bottom: 32px;
+    padding: 0 0 32px 0;
 }

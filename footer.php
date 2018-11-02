@@ -1,7 +1,11 @@
 <footer>
   <div class="footer-wrapper">
     <div class="footer-info">
-
+      <img src="https://dummyimage.com/1280x1280/000/fff"/>
+      <label>Corporativo</label>
+      <label>Tel: 3334750604</label>
+      <label>colomoscetidesarrollo@gmail.com</label>
+      <label>Av. montevideo #3457</label>
     </div>
     <div class="footer-line"></div>
     <div class="footer-links">
@@ -33,13 +37,13 @@
     <div class="footer-terms-social">
       <div class="social-networks">
         <a href="www.facebook.com">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/F_icon.svg/2000px-F_icon.svg.png"/>
+          <img src="./img/facebooknegro64.png"/>
         </a>
         <a href="www.twitter.com">
-          <img src="https://logosmarcas.com/wp-content/uploads/2018/05/Twitter-logo.png"/>
+          <img src="./img/twitternegro64.png"/>
         </a>
         <a href="www.instagram.com">
-          <img src="https://images.vexels.com/media/users/3/137197/isolated/lists/fb944c570182b6e89eb21f41f8c4522b-instagram-silueta-colorida.png"/>
+          <img src="./img/googleplusnegro64.png"/>
         </a>
       </div>
       <div class="terms-privacy">
