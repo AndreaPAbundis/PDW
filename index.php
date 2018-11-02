@@ -12,14 +12,14 @@
   </div>  onload="setTimeout(cargar, 1200);"-->
   <body>
 
-    <div class="ia-workspace">
+    <div class="ia-workspace" id="inicio">
         <?php include("navbar.php"); ?>
 		<div class="hero-content">
    		<div class="hero-image">
 			<img src="https://dummyimage.com/1200x800/000/fff">
        </div>
      </div>
-		<div class="nosotros_content">
+		<div class="nosotros_content" id="nosotros">
 			<div class="img">
 			<img src="https://dummyimage.com/510x288/000/fff">
 		</div>
@@ -29,7 +29,7 @@
 				<p>Desde 1990 estamos en el mercado y somos una empresa 100% mexicana.</p>
 			</div>
 		</div>
-		<div class="servicios-content">
+		<div class="servicios-content" id="servicios">
 			<h1>_Servicios</h1>
 			<div class="services">
 			<div class="service">
@@ -49,7 +49,7 @@
 			</div>
 			</div>
 		</div>
-		<div class="slider">
+		<div class="slider" id="clientes">
    		 <h1>_CLIENTES</h1>
 		<?php include("slider.php"); ?>
 		</div>

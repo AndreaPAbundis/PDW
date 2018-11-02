@@ -4,13 +4,13 @@
       </a>
       <nav role="navigation">
         <ul>
-          <a href="">
+          <a href="#nosotros">
             <li>NOSOTROS</li>
           </a>
-          <a href="">
+          <a href="#servicios">
             <li>SERVICIOS</li>
           </a>
-          <a href="">
+          <a href="#clientes">
             <li>CLIENTES</li>
           </a>
           <a href="">
