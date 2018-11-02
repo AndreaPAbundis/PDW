@@ -88,15 +88,14 @@ button, .btn-solid {
 }
 // Button with outline style
 .btn-outline {
-  border: solid 2px $color-secondary;
-  color: $color-secondary;
+  border: solid 2px #EAEAEA;
+  color: #EAEAEA;
   background: transparent;
   -webkit-transition: all 250ms ease-in-out;
   transition: all 250ms ease-in-out;
   &:hover,{
-    background-color: $color-secondary;
-    color: $color-inverse;
-    border: solid 2px $color-secondary;
+    background-color:#222222;
+    color: #222222;
     color: $color-inverse;
   }
   // The part of the Button Colors Outline

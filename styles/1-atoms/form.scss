@@ -47,7 +47,8 @@ textarea, select {
     outline: none;
   }
   &:active, &:focus, &:visited {
-    border-bottom-color: $color-inverse;
+    border-bottom-color: #222222;
+    border-bottom-width: 2px;
   }
 }
 select {

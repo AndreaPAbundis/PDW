@@ -434,15 +434,14 @@ button, .btn-solid {
     background-color: #ea1c0d; }
 
 .btn-outline {
-  border: solid 2px #607d8b;
-  color: #607d8b;
+  border: solid 2px #EAEAEA;
+  color: #EAEAEA;
   background: transparent;
   -webkit-transition: all 250ms ease-in-out;
   transition: all 250ms ease-in-out; }
   .btn-outline:hover {
-    background-color: #607d8b;
-    color: #FFF;
-    border: solid 2px #607d8b;
+    background-color: #222222;
+    color: #222222;
     color: #FFF; }
   .btn-outline.bg-color-primary {
     border: solid 2px #414042;
@@ -570,7 +569,8 @@ textarea, select {
   textarea:active,
   textarea:focus,
   textarea:visited, select:active, select:focus, select:visited {
-    border-bottom-color: #FFF; }
+    border-bottom-color: #222222;
+    border-bottom-width: 2px; }
 
 select {
   border-color: #d9d9d9; }
@@ -1254,5 +1254,27 @@ body {
           border: none;
           background-color: #222222;
           color: #EAEAEA; }
+
+.landingUser-wrapper {
+  width: 100%;
+  height: 80%;
+  background-color: #222222;
+  color: #EAEAEA;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  font-weight: 700; }
+
+.landingAdmin-wrapper {
+  width: 100%;
+  height: 80%;
+  background-color: #222222;
+  color: #EAEAEA;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  font-weight: 700; }
 
 /*# sourceMappingURL=main.css.map */

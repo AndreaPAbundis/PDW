@@ -16,6 +16,12 @@
           <a href="contact.php">
             <li>CONTACTO</li>
           </a>
+          <a href="login.php">
+            <button class="btn-outline">INICIAR SESION</button>
+          </a>
+          <a href="signup.php">
+            <button class="btn-outline">REGISTRARSE</button>
+          </a>
         </ul>
       </nav>
       <div id="nav-icon">
