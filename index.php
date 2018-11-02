@@ -1,95 +1,64 @@
-
 <html>
-    <head>
-        <title>EXAMEN PARCIAL 2</title>
-    </head>
-<style>
-*{
-padding:8px;
-}
-body{background-color: aliceblue;}
-</style>
-    <body>
-            	<label>
-			EXAMEN TIPO 2 I�IGO NAVARRETE MERCADO 17310214
-            	</label>
-<ul>
-<li>
-Realiza la base de datos Examen, con las tablas correspondientes llenando coherentemente al menos 10 registros(10%)
-</li>
-<li>
-Implementa una pagina inicial, donde despliegues el enunciado del tipo de examen que te toco, y un boton de ejecutar y la informacion inicial de la tabla(30%)
-</li>
-<li>
-Implementa una segunda pagina donde mostraras la informacion resultante(30%)
-</li>
-<li>
-Regresa a la primer pagina con el redireccionamiento que te toque(20%)
-</li>
-<li>
-Guardar como Exa2_iniciales, (que debe incluir las dos paginas y la bd)(10%)
-</li>
-</ul>
-<pre>
-Tipo 2: Agencia
-Crear una tabla de nombre: automoviles, con los siguientes campos:
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Corporativo</title>
+	<link href="./styles/main.css" rel="stylesheet">
+	<link rel="stylesheet" href="swiper/dist/css/swiper.min.css">
+  </head>
+  <!--<div id="carga">
+    <img src="images/carga.gif"/>
+  </div>  onload="setTimeout(cargar, 1200);"-->
+  <body>
 
-placa, numero (2), Indice y AI.
-marca, char (40).
-color, char(30)
-modelo, numero(3)
-Desplegar mediante una tabla html los automoviles cuyo numero de placa termine en numero par, y  tambien los 3 automoviles mas antiguos de ese listado.
-Redireccionamiento: header con retardo
-</pre>
-<a style="background-color: gray; border-color: black; border-width: 1px; border-style:solid;" href="main.php">pagina de resultados</a>
-<div style="margin-top: 16px; background-color: gray; width:100%; display:flex; justify-content:space-between;">
- <div style="width:25%; border-color: black; border-width: 1px; border-style:solid;">
-	placa
- </div>
- <div style="width:25%; border-color: black; border-width: 1px; border-style:solid;">
-	marca
- </div>
- <div style="width:25%; border-color: black; border-width: 1px; border-style:solid;">
-	color
- </div>
- <div style="width:25%; border-color: black; border-width: 1px; border-style:solid;">
-	modelo
- </div>
-</div>
-<?php
-$BBDD_host="localhost";
-$BBDD_BBDD="examen";
-$BBDD_user="root";
-$BBDD_pass="";
-
-$con=mysqli_connect($BBDD_host,$BBDD_user,$BBDD_pass);
-if(mysqli_connect_errno()){
-echo "no se conecto";
-}
-mysqli_set_charset($con,"UTF8");
-mysqli_select_db($con,$BBDD_BBDD) or die ("
-echo 'no se selecciono';
-");
-$consultaX="SELECT * FROM automoviles";
-$resultados1=mysqli_query($con,$consultaX);
-
-while($arreglo = mysqli_fetch_array($resultados1)){?>
-<div style="width:100%; display:flex; justify-content:space-between;">
- <div style="width:25%; border-color: black; border-width: 1px; border-style:solid;">
-	<?php echo $arreglo['placa']?>
- </div>
- <div style="width:25%; border-color: black; border-width: 1px; border-style:solid;">
-	<?php echo $arreglo['marca']?>
- </div>
- <div style="width:25%; border-color: black; border-width: 1px; border-style:solid;">
-	<?php echo $arreglo['color']?>
- </div>
- <div style="width:25%; border-color: black; border-width: 1px; border-style:solid;">
-	<?php echo $arreglo['modelo']?>
- </div>
-</div>
-<?php }
-?>
-    </body>
+    <div class="ia-workspace" id="inicio">
+        <?php include("navbar.php"); ?>
+		<div class="hero-content">
+   		<div class="hero-image">
+			<img src="https://dummyimage.com/1200x800/000/fff">
+       </div>
+     </div>
+		<div class="nosotros_content" id="nosotros">
+			<div class="img">
+			<img src="https://dummyimage.com/510x288/000/fff">
+		</div>
+			<div class="title_and_text">
+				<h1>_Nosotros</h1>
+				<p>Somos una empresa dedicada a brindar servicio a otras empresas y realizamos ventas de nuestros productos</p>
+				<p>Desde 1990 estamos en el mercado y somos una empresa 100% mexicana.</p>
+			</div>
+		</div>
+		<div class="servicios-content" id="servicios">
+			<h1>_Servicios</h1>
+			<div class="services">
+			<div class="service">
+				<img src="https://dummyimage.com/340x267/000/fff">
+				<h2>Mantenimiento</h2>
+				<p>Nos dedicamos a brindar mantenimiento y reparar cualquier tipo de elevador que desee.</p>
+			</div>
+			<div class="service">
+				<img src="https://dummyimage.com/340x267/000/fff">
+				<h2>Venta</h2>
+				<p>Contamos con una gran variedad de modelos para que elijas la mejor opción para ti.</p>
+			</div>
+			<div class="service">
+				<img src="https://dummyimage.com/340x267/000/fff">
+				<h2>Consulta</h2>
+				<p>Ayudamos a dar asesorias a empresas para auxiliarlos en cual es la mejor opción para su compra.</p>
+			</div>
+			</div>
+		</div>
+		<div class="slider" id="clientes">
+   		 <h1>_CLIENTES</h1>
+		<?php include("slider.php"); ?>
+		</div>
+        <?php include("footer.php"); ?>
+	  </div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script src="scripts/ripple.js"></script>
+	<script src="scripts/header.js"></script>
+	<script src="scripts/mobilMenu.js"></script>
+    <script src="swiper/dist/js/swiper.min.js"></script>
+</body>
 </html>
-
