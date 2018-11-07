@@ -10,6 +10,9 @@
           <a href="">
             <li>AJUSTES</li>
           </a>
+          <a href="">
+            <li>ELIMINAR CUENTA</li>
+          </a>
         </ul>
       </nav>
       <div id="nav-icon">
