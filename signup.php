@@ -18,7 +18,7 @@
     echo "<script>window.location='landingUser.php?opc=Registros Insertados';</script>";
 
     }
-    ?>
+?>
 <html>
   <head>
     <meta charset="UTF-8">
