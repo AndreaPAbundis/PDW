@@ -1,14 +1,14 @@
 <?php
     include("conection.php");
     if(ISSET($_POST['erase'])){
-    $consulta="DELETE FROM cliente WHERE NOMBRE='Inigo'";
+    $consulta="DELETE FROM cliente WHERE NOMBRE='inigo Navarrete'";
     $resultado=mysqli_query($con,$consulta);
     if (!$resultado){
         echo "<br> Ocurrio un Error en el tiempo de la operación. <br>";
         $mysqli->connect_errno;}
     else
         echo "<br> Operacion Correcta. <br>";
-    echo "<script>window.location='Index.php?opc=Registros Insertados';</script>";
+    echo "<script>window.location='Index.php';</script>";
 
     }
 ?>
@@ -26,7 +26,7 @@
           </a>
           <a>
             <form id="erase" action="#" method="POST">
-              <input type="submit" name="erase" placeholder="ELIMINAR CUENTA"/>
+              <input type="submit" name="erase" value="ELIMINAR CUENTA"/>
             </form>
           </a>
         </ul>

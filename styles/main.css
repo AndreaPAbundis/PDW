@@ -511,8 +511,7 @@ button, .btn-solid {
 form {
   font-weight: 100%;
   display: flex;
-  flex-direction: column;
-  margin-bottom: 8px; }
+  flex-direction: column; }
 
 label {
   margin-bottom: 8px;
@@ -1021,6 +1020,16 @@ header.main-nav {
       margin-right: 16px; }
       header.main-nav ul a:last-child {
         margin-right: 0; }
+      header.main-nav ul a form {
+        margin-bottom: 0; }
+        header.main-nav ul a form input {
+          border: solid 2px #EAEAEA;
+          color: #EAEAEA;
+          background: transparent;
+          -webkit-transition: all 250ms ease-in-out;
+          transition: all 250ms ease-in-out;
+          width: 250px;
+          height: 40px; }
     header.main-nav ul li {
       display: flex;
       align-items: center;
