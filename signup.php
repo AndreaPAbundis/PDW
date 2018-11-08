@@ -8,7 +8,7 @@
     $email=$_POST['email'];
     $pass=$_POST['password'];    
     $consulta="insert into clientes (id_cliente, nombre, direccion, tel, rfc, email, password )
-     values ('', '$name', '$address', '$phone', '$rfc', '$email', md5('$password'))";
+     values ('', '$name', '$address', '$phone', '$rfc', '$email', md5('$pass'))";
     
             
     $resultado=$mysqli->query($consulta);
