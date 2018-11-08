@@ -1,5 +1,5 @@
 <?php
-include("conexion.php");
+include("conection.php");
 if(ISSET($_POST['login'])){
   $email=$_POST['email'];
   $pass=$_POST['password'];
