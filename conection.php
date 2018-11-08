@@ -2,7 +2,7 @@
 $BBDD_host="localhost";
 $BBDD_BBDD="corporativo";
 $BBDD_user="root";
-$BBDD_pass="root";
+$BBDD_pass="";
 
 $con=mysqli_connect($BBDD_host,$BBDD_user,$BBDD_pass);
 if(mysqli_connect_errno()){

@@ -2,29 +2,23 @@
     include("conection.php");
     if(ISSET($_POST['signup'])){
     $name=$_POST['name'];
-    $address=$_POST['address'];    
+    $address=$_POST['address'];
     $phone=$_POST['phone'];
     $rfc=$_POST['rfc'];
     $email=$_POST['email'];
-    $pass=$_POST['password'];    
-    $consulta="insert into clientes (id_cliente, nombre, direccion, tel, rfc, email, password )
+    $pass=$_POST['password'];
+    $consulta="INSERT into cliente (id_cliente, nombre, direccion, tel, rfc, email, password )
      values ('', '$name', '$address', '$phone', '$rfc', '$email', md5('$pass'))";
-    
-            
-    $resultado=$mysqli->query($consulta);
+    $resultado=mysqli_query($con,$consulta);
     if (!$resultado){
         echo "<br> Ocurrio un Error en el tiempo de la operación. <br>";
         $mysqli->connect_errno;}
     else
         echo "<br> Operacion Correcta. <br>";
-            
-           
-    $mysqli->close();
-    
-    echo "<script>window.location='operacion_insert.php?opc=Registros Insertados';</script>";
-    
+    echo "<script>window.location='landingUser.php?opc=Registros Insertados';</script>";
+
     }
-    ?>        
+    ?>
 <html>
   <head>
     <meta charset="UTF-8">
