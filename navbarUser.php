@@ -21,7 +21,7 @@
           <a href="">
             <li>HACER PEDIDO</li>
           </a>
-          <a href="">
+          <a href="settings.php">
             <li>AJUSTES</li>
           </a>
           <a>

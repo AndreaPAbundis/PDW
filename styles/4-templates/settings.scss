@@ -1,0 +1,56 @@
+.login-wrapper-settings {
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 5rem;
+    .login-form-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .form-wrapper {
+            width: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            form {
+                width: 100%;
+                padding: 32px 48px;
+                display: flex;
+                justify-content: center;
+                flex-direction: row;
+                flex-wrap: wrap;
+                label {
+                    font-size: 24px;
+                    font-weight: bold;
+                    width: 100%;
+                    text-align: center;
+                    justify-content: center;
+                    display: flex;
+                    margin: 0;
+                }
+                hr {
+                    width: 150px;
+                    margin-top: 0;
+                }
+                input {
+                    margin: 32px 0 0 0;
+                }
+                input[type=submit] {
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    padding: 8px;
+                    width: 100%;
+                    max-width: 250px;
+                    border: none;
+                    background-color: #222222;
+                    color: #EAEAEA;
+                }
+            }
+        }
+    }
+}

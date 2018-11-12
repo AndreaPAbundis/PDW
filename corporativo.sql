@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-11-2018 a las 03:05:01
--- Versión del servidor: 10.1.26-MariaDB
--- Versión de PHP: 7.1.8
+-- Tiempo de generación: 09-11-2018 a las 21:02:06
+-- Versión del servidor: 10.1.32-MariaDB
+-- Versión de PHP: 7.2.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,64 +25,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `administracion`
---
-
-CREATE TABLE `administracion` (
-  `id_admin` int(11) NOT NULL,
-  `id_dep` int(11) NOT NULL,
-  `gerente` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `cliente`
 --
 
 CREATE TABLE `cliente` (
   `id_cliente` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
+  `apellido` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `direccion` varchar(100) NOT NULL,
   `tel` varchar(100) NOT NULL,
   `rfc` varchar(100) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `cliente`
---
-
-INSERT INTO `cliente` (`id_cliente`, `nombre`, `direccion`, `tel`, `rfc`, `email`, `password`) VALUES
-(0, 'inigo Navarrete', 'Jorge Bravo', '3334750604', '6778678', 'navarretigo@yahoo.com.mx', '827ccb0eea8a706c4c34a16891f84e7b');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `contrato`
---
-
-CREATE TABLE `contrato` (
-  `id_proy` int(11) NOT NULL,
-  `id_emp` int(11) NOT NULL,
-  `fecha_inicio` date NOT NULL,
-  `fecha_fin` date NOT NULL,
-  `num_contrato` int(11) NOT NULL
+  `empresa` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `departamentos`
+-- Estructura de tabla para la tabla `contacto`
 --
 
-CREATE TABLE `departamentos` (
-  `id_dep` int(11) NOT NULL,
+CREATE TABLE `contacto` (
+  `id_contacto` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
-  `descripcion` varchar(100) NOT NULL,
-  `cantidad_empleados` int(11) NOT NULL,
-  `presupuesto_anual` int(11) NOT NULL
+  `apellido` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `tel` varchar(100) NOT NULL,
+  `mensaje` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -92,21 +62,15 @@ CREATE TABLE `departamentos` (
 --
 
 CREATE TABLE `empleados` (
-  `nomina` varchar(100) NOT NULL,
+  `nomina` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `apellido` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `puesto` varchar(100) NOT NULL,
   `rfc` varchar(100) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
+  `id_emp` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `empleados`
---
-
-INSERT INTO `empleados` (`nomina`, `nombre`, `apellido`, `puesto`, `rfc`, `email`, `password`) VALUES
-('1', 'inigo', 'navarrete', 'jefe', '12345', 'navarretigo@yahoo.com.mx', '12345');
 
 -- --------------------------------------------------------
 
@@ -119,95 +83,94 @@ CREATE TABLE `empresa` (
   `nombre` varchar(100) NOT NULL,
   `direccion` varchar(100) NOT NULL,
   `tel` varchar(100) NOT NULL,
-  `rfc` varchar(100) NOT NULL
+  `descripcion` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `generaron`
+-- Estructura de tabla para la tabla `pedidos`
 --
 
-CREATE TABLE `generaron` (
+CREATE TABLE `pedidos` (
+  `id_pedido` int(11) NOT NULL,
   `id_emp` int(11) NOT NULL,
   `id_cliente` int(11) NOT NULL,
-  `descripcion` varchar(100) NOT NULL,
-  `pedido` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pertenecen`
---
-
-CREATE TABLE `pertenecen` (
-  `id_dep` int(11) NOT NULL,
-  `nomina` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `produccion`
---
-
-CREATE TABLE `produccion` (
-  `id_prod` int(11) NOT NULL,
-  `id_dep` int(11) NOT NULL,
-  `gerente` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `proveedores`
---
-
-CREATE TABLE `proveedores` (
-  `id_proy` int(11) NOT NULL,
-  `nombre` varchar(100) NOT NULL,
-  `direccion` varchar(100) NOT NULL,
-  `tel` varchar(100) NOT NULL,
-  `descripcion` varchar(100) NOT NULL,
-  `tipo_servicio` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `proyectos`
---
-
-CREATE TABLE `proyectos` (
-  `id_proy` int(11) NOT NULL,
-  `nombre` varchar(100) NOT NULL,
-  `descripcion` varchar(100) NOT NULL,
+  `pedido` varchar(100) NOT NULL,
+  `descripcion` varchar(250) NOT NULL,
   `fecha_inicio` date NOT NULL,
-  `fecha_fin` date NOT NULL
+  `fecha_fin` date NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  `estatus` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
 --
--- Estructura de tabla para la tabla `tiene`
+-- Índices para tablas volcadas
 --
 
-CREATE TABLE `tiene` (
-  `id_dep` int(11) NOT NULL,
-  `id_emp` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+--
+-- Indices de la tabla `cliente`
+--
+ALTER TABLE `cliente`
+  ADD PRIMARY KEY (`id_cliente`);
 
 --
--- Estructura de tabla para la tabla `trabajan`
+-- Indices de la tabla `contacto`
+--
+ALTER TABLE `contacto`
+  ADD PRIMARY KEY (`id_contacto`);
+
+--
+-- Indices de la tabla `empleados`
+--
+ALTER TABLE `empleados`
+  ADD PRIMARY KEY (`nomina`);
+
+--
+-- Indices de la tabla `empresa`
+--
+ALTER TABLE `empresa`
+  ADD PRIMARY KEY (`id_emp`);
+
+--
+-- Indices de la tabla `pedidos`
+--
+ALTER TABLE `pedidos`
+  ADD PRIMARY KEY (`id_pedido`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
-CREATE TABLE `trabajan` (
-  `id_proy` int(11) NOT NULL,
-  `nomina` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+--
+-- AUTO_INCREMENT de la tabla `cliente`
+--
+ALTER TABLE `cliente`
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `contacto`
+--
+ALTER TABLE `contacto`
+  MODIFY `id_contacto` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `empleados`
+--
+ALTER TABLE `empleados`
+  MODIFY `nomina` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `empresa`
+--
+ALTER TABLE `empresa`
+  MODIFY `id_emp` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `pedidos`
+--
+ALTER TABLE `pedidos`
+  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
