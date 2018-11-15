@@ -17,6 +17,7 @@
         $destino =  "files/".$prefijo."_".$archivo;
         if (copy($_FILES['archivo']['tmp_name'],$destino)) {
             $status = "Archivo subido con exito: <b>".$archivo."</b><br>";
+            $hola = 1;
         } 
         else {
             $status = "Error al subir el archivo";
@@ -24,20 +25,7 @@
       } 
       else {
         $status = "Error al subir archivo";}
-echo $status;
-$dir="files";
-$dh=opendir($dir);
-echo "<br>";
-echo "<table width='50' border='1'>";
-echo "<tr><td colspan='2' align='center'><b>Listado de Archivos<b></td></tr>";
-while (($file = readdir($dh)) !== false) {
-    echo "<tr>";
-      echo "<td><a href=$dir/$file>$file</a></td>";
-      echo "<td><img src='$dir/$file' width='38' height='31' border='3'></td>";
-    echo "</tr>";
-      }
-echo "</table>";
-closedir($dh);
+
 
     $consulta="UPDATE cliente
      set nombre = '$name',
@@ -58,6 +46,8 @@ closedir($dh);
         //echo "<br> Operacion Correcta. <br>";
     //echo "<script>window.location='landingUser.php?opc=Registros Insertados';</script>";
 
+    } else {
+      $hola = 0;
     }
 ?>
 <html>
@@ -96,6 +86,24 @@ closedir($dh);
               </div>
             </div>
           </div>
+          <?php
+          if($hola == 1){
+            echo $status;
+            $dir="files";
+            $dh=opendir($dir);
+            echo "<br>";
+            echo "<table width='50' border='1'>";
+            echo "<tr><td colspan='2' align='center'><b>Listado de Archivos<b></td></tr>";
+            while (($file = readdir($dh)) !== false) {
+                echo "<tr>";
+                  echo "<td><a href=$dir/$file>$file</a></td>";
+                  echo "<td><img src='$dir/$file' width='38' height='51' border='3'></td>";
+                echo "</tr>";
+                  }
+            echo "</table>";
+            closedir($dh);
+          }
+          ?>
         <?php include("footer.php"); ?>
       </div>
 </body>
