@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>settings</title>
+    <link href="./styles/main.css" rel="stylesheet">
+  </head>
+  <!--<div id="carga">
+    <img src="images/carga.gif"/>
+  </div>-->
+  <body>
+
+    <div class="ia-workspace">
+    <?php include("navbarUser.php"); ?>
+          <div class="landingUser-wrapper">
+            ADMINISTRADOR
+          </div>
+          <div class="login-wrapper-settings">
+            <div class="login-form-wrapper">
+              <div class="form-wrapper">
+                <form id="settings" action="#" method="POST">
+                  <label>BUSCAR</label>
+                  <hr>
+                  <input type="text" name="name" placeholder="Name"/>
+                  <input type="submit" name="settings" placeholder="ENVIAR"/>
+                </form>
+              </div>
+            </div>
+            <?php
+                include("conection.php");
+                if(ISSET($_POST['settings'])){
+                $name=$_POST['name'];
+                $consultaX="SELECT * FROM cliente WHERE nombre = '$name'";
+                $resultados1=mysqli_query($con,$consultaX);?>
+                <div style="margin-top: 16px; background-color: gray; width:100%; display:flex; justify-content:space-between;">
+                 <div style="padding:8px; width:25%; border-color: black; border-width: 1px; border-style:solid;">
+                	nombre
+                 </div>
+                 <div style="padding:8px; width:25%; border-color: black; border-width: 1px; border-style:solid;">
+                	apellido
+                 </div>
+                 <div style="padding:8px; width:25%; border-color: black; border-width: 1px; border-style:solid;">
+                	rfc
+                 </div>
+                 <div style="padding:8px; width:25%; border-color: black; border-width: 1px; border-style:solid;">
+                	email
+                 </div>
+                </div>
+                <?php while($arreglo = mysqli_fetch_array($resultados1)){?>
+                <div style="width:100%; display:flex; justify-content:space-between;">
+                 <div style="padding:8px; width:25%; border-color: black; border-width: 1px; border-style:solid;">
+                  <?php echo $arreglo['nombre']?>
+                 </div>
+                 <div style="padding:8px; width:25%; border-color: black; border-width: 1px; border-style:solid;">
+                  <?php echo $arreglo['apellido']?>
+                 </div>
+                 <div style="padding:8px; width:25%; border-color: black; border-width: 1px; border-style:solid;">
+                  <?php echo $arreglo['rfc']?>
+                 </div>
+                 <div style="padding:8px; width:25%; border-color: black; border-width: 1px; border-style:solid;">
+                  <?php echo $arreglo['email']?>
+                 </div>
+                </div>
+                <?php }
+                }
+              ?>
+          </div>
+        <?php include("footer.php"); ?>
+      </div>
+</body>
+</html>
