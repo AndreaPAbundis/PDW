@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-11-2018 a las 21:02:06
--- Versión del servidor: 10.1.32-MariaDB
--- Versión de PHP: 7.2.5
+-- Tiempo de generación: 15-11-2018 a las 06:46:42
+-- Versión del servidor: 10.1.26-MariaDB
+-- Versión de PHP: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -37,8 +37,16 @@ CREATE TABLE `cliente` (
   `direccion` varchar(100) NOT NULL,
   `tel` varchar(100) NOT NULL,
   `rfc` varchar(100) NOT NULL,
-  `empresa` varchar(100) NOT NULL
+  `empresa` varchar(100) NOT NULL,
+  `imagen` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `cliente`
+--
+
+INSERT INTO `cliente` (`id_cliente`, `nombre`, `apellido`, `email`, `password`, `direccion`, `tel`, `rfc`, `empresa`, `imagen`) VALUES
+(1, 'Andrea', 'Abundis', 'lizbeth@gmail.com', '12345', 'periferico norte', '3312345623', '78y68yu9', 'ceti', '');
 
 -- --------------------------------------------------------
 
@@ -69,7 +77,8 @@ CREATE TABLE `empleados` (
   `password` varchar(100) NOT NULL,
   `puesto` varchar(100) NOT NULL,
   `rfc` varchar(100) NOT NULL,
-  `id_emp` int(100) NOT NULL
+  `id_emp` int(100) NOT NULL,
+  `imagen` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -146,32 +155,27 @@ ALTER TABLE `pedidos`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `contacto`
 --
 ALTER TABLE `contacto`
   MODIFY `id_contacto` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `empleados`
 --
 ALTER TABLE `empleados`
   MODIFY `nomina` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `empresa`
 --
 ALTER TABLE `empresa`
   MODIFY `id_emp` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
+  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
