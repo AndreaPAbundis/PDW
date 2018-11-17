@@ -2,21 +2,15 @@
     include("conection.php");
     if(ISSET($_POST['signup'])){
     $name=$_POST['name'];
-    $address=$_POST['address'];
+    $lastname=$_POST['lastname'];
     $phone=$_POST['phone'];
-    $rfc=$_POST['rfc'];
     $email=$_POST['email'];
-    $pass=$_POST['password'];
-    $consulta="INSERT into cliente (id_cliente, nombre, direccion, tel, rfc, email, password )
-     values ('', '$name', '$address', '$phone', '$rfc', '$email', md5('$pass'))";
+    $message=$_POST['message'];
+    $consulta="INSERT into contacto values ('', '$name', '$lastname', '$email', '$phone', '$message')";
     $resultado=mysqli_query($con,$consulta);
     if (!$resultado){
         echo "<br> Ocurrio un Error en el tiempo de la operación. <br>";
-        $mysqli->connect_errno;}
-    else
-        echo "<br> Operacion Correcta. <br>";
-    echo "<script>window.location='landingUser.php?opc=Registros Insertados';</script>";
-
+      }
     }
 ?>
 <html>
@@ -46,7 +40,7 @@
                   <label>CONTACTO</label>
                   <hr>
                   <input type="text" name="name" placeholder="Name"/>
-                  <input type="text" name="address" placeholder="Last Name"/>
+                  <input type="text" name="lastname" placeholder="Last Name"/>
                   <input type="text" name="phone" placeholder="Phone"/>
                   <input type="email" name="email" placeholder="Email"/>
                   <textarea name="message" placeholder="Mensaje" rows="4"></textarea>
