@@ -1,6 +1,7 @@
 <div class="header-container">
-    <header class="main-nav">
-      <a href="">
+    <header class="main-nav" id="nav">
+      <a href="index.php" class="link-img">
+        <img src="https://dummyimage.com/1280x1280/ccc/fff"/>
       </a>
       <nav role="navigation">
         <ul>

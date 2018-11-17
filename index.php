@@ -12,7 +12,7 @@
   </div>  onload="setTimeout(cargar, 1200);"-->
   <body>
 
-    <div class="ia-workspace" id="inicio">
+    <div class="ia-workspace" id="inicio" OnScroll="MiFuncion()">
         <?php include("navbar.php"); ?>
 		<div class="hero-content">
    		<div class="hero-image">
@@ -59,6 +59,6 @@
 	<script src="scripts/ripple.js"></script>
 	<script src="scripts/header.js"></script>
 	<script src="scripts/mobilMenu.js"></script>
-    <script src="swiper/dist/js/swiper.min.js"></script>
+  <script src="swiper/dist/js/swiper.min.js"></script>
 </body>
 </html>
