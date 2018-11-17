@@ -1,16 +1,27 @@
 <?php
     include("conection.php");
+    $error = "";
+    $success = "";
     if(ISSET($_POST['signup'])){
     $name=$_POST['name'];
     $lastname=$_POST['lastname'];
     $phone=$_POST['phone'];
     $email=$_POST['email'];
     $message=$_POST['message'];
-    $consulta="INSERT into contacto values ('', '$name', '$lastname', '$email', '$phone', '$message')";
-    $resultado=mysqli_query($con,$consulta);
-    if (!$resultado){
-        echo "<br> Ocurrio un Error en el tiempo de la operación. <br>";
-      }
+    if( $name != null && $name != '' && $lastname != null && $lastname != '' && $phone != null && $phone != '' && $email != null && $email != '' && $message != null && $message != '' ){
+      $consulta="INSERT into contacto values ('', '$name', '$lastname', '$email', '$phone', '$message')";
+      $resultado=mysqli_query($con,$consulta);
+      if (!$resultado){
+          $error = "No pudimos enviar su mensaje";
+        }
+        else{
+          $success = "Su mensaje se envio exitosamente";
+        }
+    }
+    else{
+        $error = "No pudimos enviar su mensaje";
+    }
+
     }
 ?>
 <html>
@@ -45,6 +56,14 @@
                   <input type="email" name="email" placeholder="Email"/>
                   <textarea name="message" placeholder="Mensaje" rows="4"></textarea>
                   <input type="submit" name="signup" placeholder="ENVIAR"/>
+                  <?php
+                  if($success != null){
+                    echo '<label>' . $success . '</label>';
+                  }
+                  if($error != null){
+                    echo '<label>' . $error . '</label>';
+                  }
+                  ?>
                 </form>
               </div>
             </div>
