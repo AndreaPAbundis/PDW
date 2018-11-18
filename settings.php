@@ -1,13 +1,17 @@
 <?php
     include("conection.php");
+    $error = "";
+    $success = "";
     if(ISSET($_POST['settings'])){
     $name=$_POST['name'];
+    $lastname=$_POST['lastname'];
     $address=$_POST['address'];
     $phone=$_POST['phone'];
     $rfc=$_POST['rfc'];
+    $empresa=$_POST['empresa'];
     $email=$_POST['email'];
     $pass=$_POST['password'];
-    
+
     $tamano = $_FILES["archivo"]['size'];
     $tipo = $_FILES["archivo"]['type'];
     $archivo = $_FILES["archivo"]['name'];
@@ -18,30 +22,38 @@
         if (copy($_FILES['archivo']['tmp_name'],$destino)) {
             $status = "Archivo subido con exito: <b>".$archivo."</b><br>";
             $hola = 1;
-        } 
+        }
         else {
             $status = "Error al subir el archivo";
         }
-      } 
+      }
       else {
         $status = "Error al subir archivo";}
 
 
-    $consulta="UPDATE cliente
-     set nombre = '$name',
-     apellido = '',
-     direccion = '$address',
-     tel = '$phone',
-     rfc = '$rfc',
-     email = '$email',
-     password = md5('$pass'),
-     empresa = '',
-     imagen = '$archivo'
-     WHERE id_cliente = 1";
-    $resultado=mysqli_query($con,$consulta);
-    if (!$resultado){
-        echo "<br> Ocurrio un Error en el tiempo de la operación. <br>";
-        $mysqli->connect_errno;}
+    if($name != null && $name != '' && $lastname != null && $lastname != '' && $phone != null && $phone != '' && $email != null && $email != '' && $rfc != null && $rfc != ''){
+      $consulta="UPDATE cliente
+       set nombre = '$name',
+       apellido = '$lastname',
+       direccion = '$address',
+       tel = '$phone',
+       rfc = '$rfc',
+       email = '$email',
+       password = md5('$pass'),
+       empresa = '$empresa',
+       imagen = '$archivo'
+       WHERE id_cliente = 1";
+      $resultado=mysqli_query($con,$consulta);
+      if (!$resultado){
+          $error = "No pudimos enviar su mensaje";
+        }
+        else{
+            $success = "Su mensaje se envio exitosamente";
+        }
+    }
+    else{
+        $error = "No pudimos enviar su mensaje";
+    }
     //else
         //echo "<br> Operacion Correcta. <br>";
     //echo "<script>window.location='landingUser.php?opc=Registros Insertados';</script>";
@@ -65,9 +77,6 @@
 
     <div class="ia-workspace">
     <?php include("navbarUser.php"); ?>
-          <div class="landingUser-wrapper">
-            CLIENTE
-          </div>
           <div class="login-wrapper-settings">
             <div class="login-form-wrapper">
               <div class="form-wrapper">
@@ -75,19 +84,30 @@
                   <label>SETTINGS</label>
                   <hr>
                   <input type="text" name="name" placeholder="Name"/>
+                  <input type="text" name="lastname" placeholder="Last Name"/>
                   <input type="text" name="address" placeholder="Address"/>
                   <input type="text" name="phone" placeholder="Phone"/>
                   <input type="text" name="rfc" placeholder="RFC"/>
+                  <input type="text" name="empresa" placeholder="Empresa"/>
                   <input type="email" name="email" placeholder="Email"/>
                   <input type="password" name="password" placeholder="Password"/>
                   <input name="archivo" type="file" size="40"  />
+                  <div class="img-file">Selecciona una imagen</div>
                   <input type="submit" name="settings" placeholder="ENVIAR"/>
+                  <?php
+                  if($success != null){
+                    echo '<label>' . $success . '</label>';
+                  }
+                  if($error != null){
+                    echo '<label>' . $error . '</label>';
+                  }
+                  ?>
                 </form>
               </div>
             </div>
           </div>
           <?php
-          if($hola == 1){
+          /*if($hola == 1){
             echo $status;
             $dir="files";
             $dh=opendir($dir);
@@ -102,9 +122,13 @@
                   }
             echo "</table>";
             closedir($dh);
-          }
+          }*/
           ?>
         <?php include("footer.php"); ?>
       </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+      <script src="scripts/ripple.js"></script>
+      <script src="scripts/header.js"></script>
+      <script src="scripts/mobilMenu.js"></script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <?php
 include("conection.php");
+$error = "";
 if(ISSET($_POST['login'])){
   $email=$_POST['email'];
   $pass=$_POST['password'];
@@ -15,7 +16,7 @@ if(ISSET($_POST['login'])){
     if(!empty($countUser)){
       header("refresh:1; url=landingUser.php");
     } else {
-      echo "este usuario no esta registrado";
+        $error = "Este usuario no esta registrado";
     }
   }
 }
@@ -44,11 +45,20 @@ if(ISSET($_POST['login'])){
                   <input type="text" name="email" placeholder="Email"/>
                   <input type="password" name="password" placeholder="Password"/>
                   <input type="submit" name="login" placeholder="ENVIAR"/>
+                  <?php
+                  if($error != null){
+                    echo '<label>' . $error . '</label>';
+                  }
+                  ?>
                 </form>
               </div>
             </div>
           </div>
         <?php include("footer.php"); ?>
       </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+      <script src="scripts/ripple.js"></script>
+      <script src="scripts/header.js"></script>
+      <script src="scripts/mobilMenu.js"></script>
 </body>
 </html>

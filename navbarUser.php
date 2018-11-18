@@ -13,12 +13,13 @@
     }
 ?>
 <div class="header-container">
-    <header class="main-nav">
-      <a href="">
+    <header class="main-nav navbar-color">
+      <a href="index.php" class="link-img">
+        <img src="https://dummyimage.com/1280x1280/ccc/fff"/>
       </a>
       <nav role="navigation">
         <ul>
-          <a href="">
+          <a href="landingUser.php">
             <li>HACER PEDIDO</li>
           </a>
           <a href="settings.php">

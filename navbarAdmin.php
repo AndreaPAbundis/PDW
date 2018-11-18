@@ -1,14 +1,23 @@
 <div class="header-container">
-    <header class="main-nav">
-      <a href="">
+    <header class="main-nav navbar-color">
+      <a href="index.php" class="link-img">
+        <img src="https://dummyimage.com/1280x1280/ccc/fff"/>
       </a>
       <nav role="navigation">
         <ul>
-          <a href="">
+          <a href="landingAdmin.php">
             <li>PEDIDOS</li>
           </a>
-          <a href="">
+          <a href="settingsAdmin.php">
             <li>AJUSTES</li>
+          </a>
+          <a href="search.php">
+            <li>BUSCAR</li>
+          </a>
+          <a>
+            <form id="erase" action="#" method="POST">
+              <input type="submit" name="erase" value="ELIMINAR CUENTA"/>
+            </form>
           </a>
         </ul>
       </nav>

@@ -1,3 +1,64 @@
+<?php
+    include("conection.php");
+    $error = "";
+    $success = "";
+    if(ISSET($_POST['settings'])){
+    $name=$_POST['name'];
+    $lastname=$_POST['lastname'];
+    $rfc=$_POST['rfc'];
+    $puesto=$_POST['puesto'];
+    $email=$_POST['email'];
+    $pass=$_POST['password'];
+
+    $tamano = $_FILES["archivo"]['size'];
+    $tipo = $_FILES["archivo"]['type'];
+    $archivo = $_FILES["archivo"]['name'];
+    $prefijo = substr(md5(uniqid(rand())),0,6);
+    if ($archivo != "") {
+        // guardamos el archivo a la carpeta files, si no existe la tienes q crear antes de subir los archivos.
+        $destino =  "files/".$prefijo."_".$archivo;
+        if (copy($_FILES['archivo']['tmp_name'],$destino)) {
+            $status = "Archivo subido con exito: <b>".$archivo."</b><br>";
+            $hola = 1;
+        }
+        else {
+            $status = "Error al subir el archivo";
+        }
+      }
+      else {
+        $status = "Error al subir archivo";}
+
+
+    if($name != null && $name != '' && $lastname != null && $lastname != '' && $puesto != null && $puesto != '' && $email != null && $email != '' && $rfc != null && $rfc != '' ){
+      $consulta="UPDATE empleados
+       set nombre = '$name',
+       apellido = '$lastname',
+       puesto = '$puesto',
+       rfc = '$rfc',
+       email = '$email',
+       password = md5('$pass'),
+       id_emp = '',
+       imagen = '$archivo'
+       WHERE nomina = 1";
+      $resultado=mysqli_query($con,$consulta);
+      if (!$resultado){
+          $error = "No pudimos actualizar sus datos";
+      }
+      else{
+          $success = "Su datos se actualizaron exitosamente";
+      }
+    }
+    else{
+        $error = "No pudimos actualizar sus datos";
+    }
+    //else
+        //echo "<br> Operacion Correcta. <br>";
+    //echo "<script>window.location='landingUser.php?opc=Registros Insertados';</script>";
+
+    } else {
+      $hola = 0;
+    }
+?>
 <html>
   <head>
     <meta charset="UTF-8">
@@ -12,61 +73,57 @@
   <body>
 
     <div class="ia-workspace">
-    <?php include("navbarUser.php"); ?>
-          <div class="landingUser-wrapper">
-            ADMINISTRADOR
-          </div>
+    <?php include("navbarAdmin.php"); ?>
           <div class="login-wrapper-settings">
             <div class="login-form-wrapper">
               <div class="form-wrapper">
-                <form id="settings" action="#" method="POST">
-                  <label>BUSCAR</label>
+                <form id="settings" action="#" method="POST" enctype="multipart/form-data">
+                  <label>SETTINGS</label>
                   <hr>
                   <input type="text" name="name" placeholder="Name"/>
+                  <input type="text" name="lastname" placeholder="Last Name"/>
+                  <input type="text" name="rfc" placeholder="RFC"/>
+                  <input type="text" name="puesto" placeholder="Puesto"/>
+                  <input type="email" name="email" placeholder="Email"/>
+                  <input type="password" name="password" placeholder="Password"/>
+                  <input name="archivo" type="file" size="40"  />
+                  <div class="img-file">Selecciona una imagen</div>
                   <input type="submit" name="settings" placeholder="ENVIAR"/>
+                  <?php
+                  if($success != null){
+                    echo '<label>' . $success . '</label>';
+                  }
+                  if($error != null){
+                    echo '<label>' . $error . '</label>';
+                  }
+                  ?>
                 </form>
               </div>
             </div>
-            <?php
-                include("conection.php");
-                if(ISSET($_POST['settings'])){
-                $name=$_POST['name'];
-                $consultaX="SELECT * FROM cliente WHERE nombre = '$name'";
-                $resultados1=mysqli_query($con,$consultaX);?>
-                <div style="margin-top: 16px; background-color: gray; width:100%; display:flex; justify-content:space-between;">
-                 <div style="padding:8px; width:25%; border-color: black; border-width: 1px; border-style:solid;">
-                	nombre
-                 </div>
-                 <div style="padding:8px; width:25%; border-color: black; border-width: 1px; border-style:solid;">
-                	apellido
-                 </div>
-                 <div style="padding:8px; width:25%; border-color: black; border-width: 1px; border-style:solid;">
-                	rfc
-                 </div>
-                 <div style="padding:8px; width:25%; border-color: black; border-width: 1px; border-style:solid;">
-                	email
-                 </div>
-                </div>
-                <?php while($arreglo = mysqli_fetch_array($resultados1)){?>
-                <div style="width:100%; display:flex; justify-content:space-between;">
-                 <div style="padding:8px; width:25%; border-color: black; border-width: 1px; border-style:solid;">
-                  <?php echo $arreglo['nombre']?>
-                 </div>
-                 <div style="padding:8px; width:25%; border-color: black; border-width: 1px; border-style:solid;">
-                  <?php echo $arreglo['apellido']?>
-                 </div>
-                 <div style="padding:8px; width:25%; border-color: black; border-width: 1px; border-style:solid;">
-                  <?php echo $arreglo['rfc']?>
-                 </div>
-                 <div style="padding:8px; width:25%; border-color: black; border-width: 1px; border-style:solid;">
-                  <?php echo $arreglo['email']?>
-                 </div>
-                </div>
-                <?php }
-                }
-              ?>
           </div>
+          <?php
+          /*if($hola == 1){
+            echo $status;
+            $dir="files";
+            $dh=opendir($dir);
+            echo "<br>";
+            echo "<table width='50' border='1'>";
+            echo "<tr><td colspan='2' align='center'><b>Listado de Archivos<b></td></tr>";
+            while (($file = readdir($dh)) !== false) {
+                echo "<tr>";
+                  echo "<td><a href=$dir/$file>$file</a></td>";
+                  echo "<td><img src='$dir/$file' width='38' height='51' border='3'></td>";
+                echo "</tr>";
+                  }
+            echo "</table>";
+            closedir($dh);
+          }*/
+          ?>
         <?php include("footer.php"); ?>
       </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+      <script src="scripts/ripple.js"></script>
+      <script src="scripts/header.js"></script>
+      <script src="scripts/mobilMenu.js"></script>
 </body>
 </html>

@@ -1,11 +1,12 @@
 .login-wrapper-settings {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     justify-content: center;
     align-items: center;
     background-position: center;
     background-size: cover;
     margin-bottom: 5rem;
+    padding-top: 80px;
     .login-form-wrapper {
         width: 100%;
         display: flex;
@@ -24,6 +25,23 @@
                 justify-content: center;
                 flex-direction: row;
                 flex-wrap: wrap;
+                .img-file{
+                  width: 100%;
+                  height: 40px;
+                  border: solid 1px #6c6c6d;
+                  margin-top: -40px;
+                  display: flex;
+                  align-items: center;
+                  padding-left: 8px;
+                  font-family: Arial;
+                  color: #6c6c6c;
+                }
+                input[type=file]{
+                  width: 100%;
+                  height: 40px;
+                  opacity: 0;
+                  z-index: 9999;
+                }
                 label {
                     font-size: 24px;
                     font-weight: bold;

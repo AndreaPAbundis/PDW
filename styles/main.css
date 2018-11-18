@@ -1012,7 +1012,7 @@ header.main-nav {
   padding: 16px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   background-color: transparent;
   margin-bottom: -190px; }
   header.main-nav a {
@@ -1037,7 +1037,8 @@ header.main-nav {
     display: flex;
     justify-content: space-around;
     list-style: none;
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    height: 50px; }
     header.main-nav ul a {
       display: flex;
       align-items: center;
@@ -1261,13 +1262,19 @@ body {
 
 .login-wrapper {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 100px 0 50px 0;
   display: flex;
   justify-content: center;
   align-items: center;
   background-image: url(https://dummyimage.com/1280x1280/ccc/fff);
   background-position: center;
   background-size: cover; }
+  @media screen and (max-width: 992px) {
+    .login-wrapper {
+      height: auto;
+      min-height: 100vh;
+      padding-top: 64px; } }
   .login-wrapper .login-form-wrapper {
     width: 100%;
     display: flex;
@@ -1334,12 +1341,13 @@ body {
 
 .login-wrapper-settings {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   justify-content: center;
   align-items: center;
   background-position: center;
   background-size: cover;
-  margin-bottom: 5rem; }
+  margin-bottom: 5rem;
+  padding-top: 80px; }
   .login-wrapper-settings .login-form-wrapper {
     width: 100%;
     display: flex;
@@ -1358,6 +1366,21 @@ body {
         justify-content: center;
         flex-direction: row;
         flex-wrap: wrap; }
+        .login-wrapper-settings .login-form-wrapper .form-wrapper form .img-file {
+          width: 100%;
+          height: 40px;
+          border: solid 1px #6c6c6d;
+          margin-top: -40px;
+          display: flex;
+          align-items: center;
+          padding-left: 8px;
+          font-family: Arial;
+          color: #6c6c6c; }
+        .login-wrapper-settings .login-form-wrapper .form-wrapper form input[type=file] {
+          width: 100%;
+          height: 40px;
+          opacity: 0;
+          z-index: 9999; }
         .login-wrapper-settings .login-form-wrapper .form-wrapper form label {
           font-size: 24px;
           font-weight: bold;
