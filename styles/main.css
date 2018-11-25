@@ -524,11 +524,14 @@ input[type=text],
 input[type=email],
 input[type=search],
 input[type=tel],
+input[type=number],
 input[type=url],
 input[type=password],
 textarea, select {
   min-width: 80px;
   width: 100%;
+  font-family: Arial;
+  color: gray;
   height: 40px;
   background-color: transparent;
   padding-left: 8px;
@@ -538,13 +541,14 @@ textarea, select {
   text-align: left;
   font-size: 16px;
   font-weight: 300;
-  color: #414042;
+  margin: 32px 0 0 0;
   -webkit-transition: border-color 400ms ease-in-out;
   transition: border-color 400ms ease-in-out; }
   input[type=text]:focus,
   input[type=email]:focus,
   input[type=search]:focus,
   input[type=tel]:focus,
+  input[type=number]:focus,
   input[type=url]:focus,
   input[type=password]:focus,
   textarea:focus, select:focus {
@@ -559,6 +563,9 @@ textarea, select {
   input[type=tel]:active,
   input[type=tel]:focus,
   input[type=tel]:visited,
+  input[type=number]:active,
+  input[type=number]:focus,
+  input[type=number]:visited,
   input[type=url]:active,
   input[type=url]:focus,
   input[type=url]:visited,
@@ -570,6 +577,9 @@ textarea, select {
   textarea:visited, select:active, select:focus, select:visited {
     border-bottom-color: #222222;
     border-bottom-width: 2px; }
+
+textarea {
+  height: 64px; }
 
 select {
   border-color: #d9d9d9; }

@@ -22,6 +22,9 @@
           <a href="landingUser.php">
             <li>HACER PEDIDO</li>
           </a>
+            <a href="VerPedidos.php">
+              <li>VER PEDIDOS</li>
+            </a>
           <a href="settings.php">
             <li>AJUSTES</li>
           </a>

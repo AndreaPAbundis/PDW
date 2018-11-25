@@ -11,6 +11,9 @@
           <a href="settingsAdmin.php">
             <li>AJUSTES</li>
           </a>
+            <a href="signupAdmin.php">
+              <li>REGISTRAR</li>
+            </a>
           <a href="search.php">
             <li>BUSCAR</li>
           </a>

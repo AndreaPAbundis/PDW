@@ -3,23 +3,23 @@
     $message=null;
     if(ISSET($_POST['signup'])){
       $name=$_POST['name'];
-      $address=$_POST['address'];
-      $phone=$_POST['phone'];
+      $lastname=$_POST['lastname'];
+      $puesto=$_POST['puesto'];
       $rfc=$_POST['rfc'];
       $email=$_POST['email'];
       $pass=$_POST['password'];
-      if( $name != null && $name != '' && $address != null && $address != '' && $phone != null && $phone != '' && $email != null && $email != '' && $pass != null && $pass != '' ){
-        $registro ="SELECT email FROM cliente WHERE email = '$email'";
+      if( $name != null && $name != '' && $lastname != null && $lastname != '' && $rfc != null && $rfc != '' && $email != null && $email != '' && $pass != null && $pass != '' ){
+        $registro ="SELECT email FROM empleados WHERE email = '$email'";
         $resultados=mysqli_query($con,$registro);
         if(0 == mysqli_num_rows($resultados)){
-          $consulta="INSERT into cliente (id_cliente, nombre, direccion, tel, rfc, email, password )
-           values ('', '$name', '$address', '$phone', '$rfc', '$email', md5('$pass'))";
+          $consulta="INSERT into empleados (nomina, nombre, apellido, email, password, puesto, rfc, id_emp, imagen )
+           values ('', '$name', '$lastname', '$email', md5('$pass'), '$puesto', '$rfc', '', '')";
           $resultado=mysqli_query($con,$consulta);
           if (!$resultado){
             $message = "No se pudo registrar";
           }
           else
-            $message = "Ahora debes iniciar sesion";
+            $message = "Se registro correctamente";
         }
         else{
           $message = "Este usuario ya esta registrado";
@@ -41,7 +41,7 @@
   <body>
 
     <div class="ia-workspace">
-        <?php include("navbar.php"); ?>
+        <?php include("navbarAdmin.php"); ?>
           <div class="login-wrapper">
             <div class="login-form-wrapper">
               <div class="form-wrapper">
@@ -49,8 +49,8 @@
                   <label>SIGN UP</label>
                   <hr>
                   <input type="text" name="name" placeholder="Name"/>
-                  <input type="text" name="address" placeholder="Address"/>
-                  <input type="text" name="phone" placeholder="Phone"/>
+                  <input type="text" name="lastname" placeholder="Last name"/>
+                  <input type="text" name="puesto" placeholder="Puesto"/>
                   <input type="text" name="rfc" placeholder="RFC"/>
                   <input type="email" name="email" placeholder="Email"/>
                   <input type="password" name="password" placeholder="Password"/>
