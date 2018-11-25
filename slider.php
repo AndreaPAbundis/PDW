@@ -50,7 +50,7 @@
       -webkit-align-items: center;
     }
     .swiper-pagination-bullet-active{
-      background: #42BB42;
+      background: black;
     }
     .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
       bottom: 2px;

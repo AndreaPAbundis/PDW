@@ -14,6 +14,9 @@
           <a href="search.php">
             <li>BUSCAR</li>
           </a>
+          <a href="contactlist.php">
+              <li>MENSAJES</li>
+          </a>
           <a>
             <form id="erase" action="#" method="POST">
               <input type="submit" name="erase" value="ELIMINAR CUENTA"/>

@@ -131,6 +131,9 @@ header.main-nav {
             font-size: $space-3;
             //padding-top: $space-3;
             padding-right: $space-base;
+            @media screen and (max-width: 1180px){
+              font-size: $space-2;
+            }
         }
         img {
             width: 120px;

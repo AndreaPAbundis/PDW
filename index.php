@@ -7,9 +7,6 @@
 	<link href="./styles/main.css" rel="stylesheet">
 	<link rel="stylesheet" href="swiper/dist/css/swiper.min.css">
   </head>
-  <!--<div id="carga">
-    <img src="images/carga.gif"/>
-  </div>  onload="setTimeout(cargar, 1200);"-->
   <body>
 
     <div class="ia-workspace" id="inicio" OnScroll="MiFuncion()">

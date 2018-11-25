@@ -17,7 +17,7 @@ footer{
       justify-content: center;
       flex-wrap: wrap;
       @media screen and (max-width: 992px) {
-        width: 90%;
+        width: 100%;
         padding: 8px;
       }
       img{
@@ -33,7 +33,7 @@ footer{
     .footer-links{
       width: 33%;
       @media screen and (max-width: 992px) {
-        width: 90%;
+        width: 100%;
         padding: 8px;
       }
       ul{
@@ -59,7 +59,7 @@ footer{
       align-items: center;
       flex-wrap: wrap;
       @media screen and (max-width: 992px) {
-        width: 90%;
+        width: 100%;
         padding: 8px;
       }
       .terms-privacy{
@@ -72,6 +72,9 @@ footer{
           text-transform: capitalize;
           text-align: center;
         }
+        a:hover{
+          font-weight: 900;
+        }
         label{
           width: 100%;
           justify-content: center;
@@ -81,8 +84,14 @@ footer{
         width: 100%;
         display: flex;
         justify-content: center;
+          @media screen and (max-width: 992px){
+            justify-content: space-around;
+          }
         a{
           width: 20%;
+          @media screen and (max-width: 992px){
+            width: auto;
+          }
           img{
             width: 50px;
             height: auto;
