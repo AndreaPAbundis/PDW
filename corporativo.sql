@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-11-2018 a las 06:46:42
+-- Tiempo de generación: 26-11-2018 a las 08:56:24
 -- Versión del servidor: 10.1.26-MariaDB
 -- Versión de PHP: 7.1.8
 
@@ -46,7 +46,8 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`id_cliente`, `nombre`, `apellido`, `email`, `password`, `direccion`, `tel`, `rfc`, `empresa`, `imagen`) VALUES
-(1, 'Andrea', 'Abundis', 'lizbeth@gmail.com', '12345', 'periferico norte', '3312345623', '78y68yu9', 'ceti', '');
+(3, 'inigo Navarrete', 'Navarrete', 'navarretigo@yahoo.com.mx', '123456789', 'Jorge Bravo', '3334750604', '222222', 'CETI ', 'MI CURRICULUM.PNG'),
+(4, 'inigo Navarrete', '', 'navarressstigo@yahoo.com.mx', '9f6e6800cfae7749eb6c486619254b9c', 'Jorge Bravo', '3334750604', 'sss', '', '');
 
 -- --------------------------------------------------------
 
@@ -63,6 +64,21 @@ CREATE TABLE `contacto` (
   `mensaje` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `contacto`
+--
+
+INSERT INTO `contacto` (`id_contacto`, `nombre`, `apellido`, `email`, `tel`, `mensaje`) VALUES
+(1, 'inigo Navarrete', 'Navarrete', 'navarretigo@yahoo.com.mx', '3334750604', 'excelente\r\n'),
+(2, 'inigo Navarrete', 'Navarrete', 'navarretigo@yahoo.com.mx', '3334750604', 'excelente\r\n'),
+(3, 'inigo Navarrete', 'Navarrete', 'navarretigo@yahoo.com.mx', '3334750604', 'excelente\r\n'),
+(4, '', '', '', '', ''),
+(5, 'inigo Navarrete', 'Navarrete', 'navarretigo@yahoo.com.mx', '3334750604', 'sffd'),
+(6, 'inigo Navarrete', 'Navarrete', 'navarretigo@yahoo.com.mx', '3334750604', 'excelente'),
+(7, 'sdfsd', 'sfgsd', 'navarretigo@yahoo.com.mx', 'sdf', 'sdf'),
+(8, 'inigo Navarrete', 'Navarrete', 'navarretigo@yahoo.com.mx', '3334750604', 'exce'),
+(9, 'inigo Navarrete', 'Navarrete', 'navarretigo@yahoo.com.mx', '3334750604', 'excelente');
+
 -- --------------------------------------------------------
 
 --
@@ -77,23 +93,20 @@ CREATE TABLE `empleados` (
   `password` varchar(100) NOT NULL,
   `puesto` varchar(100) NOT NULL,
   `rfc` varchar(100) NOT NULL,
-  `id_emp` int(100) NOT NULL,
   `imagen` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
 --
--- Estructura de tabla para la tabla `empresa`
+-- Volcado de datos para la tabla `empleados`
 --
 
-CREATE TABLE `empresa` (
-  `id_emp` int(11) NOT NULL,
-  `nombre` varchar(100) NOT NULL,
-  `direccion` varchar(100) NOT NULL,
-  `tel` varchar(100) NOT NULL,
-  `descripcion` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `empleados` (`nomina`, `nombre`, `apellido`, `email`, `password`, `puesto`, `rfc`, `imagen`) VALUES
+(1, 'inigo Navarrete', 'Navarrete', 'navarretigo@yahoo.com.mx', '12345', 'dgf', 'dhgdg', ''),
+(2, 'Andrea', 'Abundis', 'lizbethabundis@hotmail.com', '12345', 'jefa', '5645645645', ''),
+(3, 'inigo Navarrete', 'Navarrete', 'navarretigo@yahoo.com.mx', 'sdsfsd', 'svsvsv', 'gfsfvv', 'MI CURRICULUM.PNG'),
+(4, 'inigo Navarrete', 'Navarrete', 'navarretigo@yahdoo.com.mx', 'd713e38281718ed2d493fdcfa44dac7e', 'sdsd', 'ssd', ''),
+(5, 'inigo Navarrete', 'Navarrete', 'navarretigo@yashdoo.com.mx', '9f6e6800cfae7749eb6c486619254b9c', 'sdsd', 'ssd', ''),
+(6, 'Andrea', 'Abundis', 'lizbethabundis@hotmail.coms', '123', 'a', 'a', '');
 
 -- --------------------------------------------------------
 
@@ -103,15 +116,24 @@ CREATE TABLE `empresa` (
 
 CREATE TABLE `pedidos` (
   `id_pedido` int(11) NOT NULL,
-  `id_emp` int(11) NOT NULL,
   `id_cliente` int(11) NOT NULL,
   `pedido` varchar(100) NOT NULL,
   `descripcion` varchar(250) NOT NULL,
-  `fecha_inicio` date NOT NULL,
-  `fecha_fin` date NOT NULL,
   `cantidad` int(11) NOT NULL,
   `estatus` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `pedidos`
+--
+
+INSERT INTO `pedidos` (`id_pedido`, `id_cliente`, `pedido`, `descripcion`, `cantidad`, `estatus`) VALUES
+(1, 0, 'fgbdg', 'Descripciondbdfdfb', 444, 'terminados'),
+(2, 0, 'nada', 'un pan', 8, 'acabado'),
+(3, 1, 'eeee', 'Descripcioneeeee', 4444444, 'fhffffffff'),
+(4, 3, 'rhb', 'Descripcionfgnfgnf', 7777, ''),
+(5, 3, 'rhb', 'Descripcionfgnfgnf', 7777, ''),
+(6, 3, 'fffffffff', 'fffffffff', 555555, '');
 
 --
 -- Índices para tablas volcadas
@@ -136,12 +158,6 @@ ALTER TABLE `empleados`
   ADD PRIMARY KEY (`nomina`);
 
 --
--- Indices de la tabla `empresa`
---
-ALTER TABLE `empresa`
-  ADD PRIMARY KEY (`id_emp`);
-
---
 -- Indices de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
@@ -155,27 +171,22 @@ ALTER TABLE `pedidos`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `contacto`
 --
 ALTER TABLE `contacto`
-  MODIFY `id_contacto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_contacto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT de la tabla `empleados`
 --
 ALTER TABLE `empleados`
-  MODIFY `nomina` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `empresa`
---
-ALTER TABLE `empresa`
-  MODIFY `id_emp` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `nomina` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
+  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
