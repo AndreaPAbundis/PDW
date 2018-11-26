@@ -12,7 +12,7 @@
   <body>
 
     <div class="ia-workspace">
-        <?php include("navbarAdmin.php"); ?>
+        <?php include("navbarUser.php"); ?>
           <div class="login-wrapper-settings">
             <div class="login-form-wrapper">
               <div class="form-wrapper">
