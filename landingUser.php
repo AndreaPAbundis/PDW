@@ -1,13 +1,19 @@
 <?php
-    include("conection.php");
+session_start();
+include("conection.php");
+  if(!isset($_SESSION['inicio_sesion'])){
+header("location: login.php");	
+}
     $message=null;
     if(ISSET($_POST['signup'])){
       $pedido=$_POST['pedido'];
       $descripcion=$_POST['descripcion'];
       $cantidad=$_POST['cantidad'];
+      $id = $_SESSION['NOMBRE'];
+      echo $id;
       if( $pedido != null && $pedido != '' && $descripcion != null && $descripcion != '' && $cantidad != null && $cantidad != ''){
           $consulta="INSERT into pedidos
-           values ('', '', '$pedido', '$descripcion', '', '', '$cantidad', '')";
+           values ('', '$id', '$pedido', '$descripcion', '$cantidad', '')";
           $resultado=mysqli_query($con,$consulta);
           if (!$resultado){
             $message = "No se pudo registrar";
@@ -39,7 +45,7 @@
                   <label>PEDIDOS</label>
                   <hr>
                   <input type="text" name="pedido" placeholder="Pedido"/>
-                  <textarea name="descripcion" placeholder="Descripcion">Descripcion</textarea>
+                  <textarea name="descripcion" placeholder="Descripcion"></textarea>
                   <input type="number" name="cantidad" placeholder="Cantidad"/>
                   <input type="submit" name="signup" placeholder="ENVIAR"/>
                   <?php

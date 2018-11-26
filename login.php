@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("conection.php");
 $error = "";
 if(ISSET($_POST['login'])){
@@ -12,11 +13,32 @@ if(ISSET($_POST['login'])){
   } else {
     $loginUser="SELECT * FROM cliente WHERE (email = '$email' AND password = '$pass')";
     $resultadoUser=mysqli_query($con,$loginUser);
+    $row = mysqli_fetch_array($resultadoUser);
+    $tipo_u = $row['id_cliente'];
   	$countUser=mysqli_num_rows($resultadoUser);
     if(!empty($countUser)){
+      $_SESSION['inicio_sesion']='ceti';
+      $_SESSION['tipo_usuario'] = "usuario";
+      $_SESSION['tipo_usuarioB'] = "usuario";
+      $_SESSION['NOMBRE']=$tipo_u;
       header("refresh:1; url=landingUser.php");
-    } else {
+    }
+    else {
+      $loginAdmin="SELECT * FROM empleados WHERE (email = '$email' AND password = '$pass')";
+      $resultadoAdmin=mysqli_query($con,$loginAdmin);
+      $row = mysqli_fetch_array($resultadoAdmin);
+      $tipo_a = $row['nomina'];
+    	$countAdmin=mysqli_num_rows($resultadoAdmin);
+      if(!empty($countAdmin)){
+        $_SESSION['inicio_sesion']='ceti';
+        $_SESSION['tipo_usuario'] = "admin";
+        $_SESSION['tipo_usuarioA'] = "admin";
+        $_SESSION['NOMBRE']=$tipo_a;
+        header("refresh:1; url=landingAdmin.php");
+      }
+      else{
         $error = "Este usuario no esta registrado";
+      }
     }
   }
 }

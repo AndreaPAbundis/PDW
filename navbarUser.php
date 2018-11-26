@@ -1,7 +1,8 @@
 <?php
     include("conection.php");
     if(ISSET($_POST['erase'])){
-    $consulta="DELETE FROM cliente WHERE NOMBRE='inigo Navarrete'";
+    $id = $_SESSION['NOMBRE'];
+    $consulta="DELETE FROM cliente WHERE id_cliente='$id'";
     $resultado=mysqli_query($con,$consulta);
     if (!$resultado){
         echo "<br> Ocurrio un Error en el tiempo de la operación. <br>";
@@ -27,6 +28,9 @@
             </a>
           <a href="settings.php">
             <li>AJUSTES</li>
+          </a>
+          <a href="logout.php?logout">
+            <li>CERRAR SESION</li>
           </a>
           <a>
             <form id="erase" action="#" method="POST">

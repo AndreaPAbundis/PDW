@@ -1,4 +1,9 @@
 <?php
+session_start();
+include("conection.php");
+  if(!isset($_SESSION['inicio_sesion'])){
+header("location: login.php");	
+}
     include("conection.php");
     $error = "";
     $success = "";
@@ -11,6 +16,7 @@
     $empresa=$_POST['empresa'];
     $email=$_POST['email'];
     $pass=$_POST['password'];
+    $id = $_SESSION['NOMBRE'];
 
     $tamano = $_FILES["archivo"]['size'];
     $tipo = $_FILES["archivo"]['type'];
@@ -39,10 +45,10 @@
        tel = '$phone',
        rfc = '$rfc',
        email = '$email',
-       password = md5('$pass'),
+       password = '$pass',
        empresa = '$empresa',
        imagen = '$archivo'
-       WHERE id_cliente = 1";
+       WHERE id_cliente = '$id'";
       $resultado=mysqli_query($con,$consulta);
       if (!$resultado){
           $error = "No pudimos enviar su mensaje";

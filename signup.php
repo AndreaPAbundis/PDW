@@ -13,7 +13,7 @@
         $resultados=mysqli_query($con,$registro);
         if(0 == mysqli_num_rows($resultados)){
           $consulta="INSERT into cliente (id_cliente, nombre, direccion, tel, rfc, email, password )
-           values ('', '$name', '$address', '$phone', '$rfc', '$email', md5('$pass'))";
+           values ('', '$name', '$address', '$phone', '$rfc', '$email', '$pass')";
           $resultado=mysqli_query($con,$consulta);
           if (!$resultado){
             $message = "No se pudo registrar";

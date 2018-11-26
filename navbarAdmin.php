@@ -1,3 +1,18 @@
+<?php
+    include("conection.php");
+    if(ISSET($_POST['erase'])){
+    $id = $_SESSION['NOMBRE'];
+    $consulta="DELETE FROM empleados WHERE nomina='$id'";
+    $resultado=mysqli_query($con,$consulta);
+    if (!$resultado){
+        echo "<br> Ocurrio un Error en el tiempo de la operación. <br>";
+        $mysqli->connect_errno;}
+    else
+        echo "<br> Operacion Correcta. <br>";
+    echo "<script>window.location='Index.php';</script>";
+
+    }
+?>
 <div class="header-container">
     <header class="main-nav navbar-color">
       <a href="index.php" class="link-img">
@@ -19,6 +34,9 @@
           </a>
           <a href="contactlist.php">
               <li>MENSAJES</li>
+          </a>
+          <a href="logout.php?logout">
+            <li>CERRAR SESION</li>
           </a>
           <a>
             <form id="erase" action="#" method="POST">

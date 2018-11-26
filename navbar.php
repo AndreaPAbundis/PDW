@@ -1,3 +1,6 @@
+<?php
+include("conection.php");
+?>
 <div class="header-container">
     <header class="main-nav" id="nav">
       <a href="index.php" class="link-img">
@@ -17,12 +20,18 @@
           <a href="contact.php">
             <li>CONTACTO</li>
           </a>
+          <?php
+           // if(isset($_SESSION['inicio_sesion'])){
+          ?>
           <a href="login.php">
             <button class="btn-outline">INICIAR SESION</button>
           </a>
           <a href="signup.php">
             <button class="btn-outline">REGISTRARSE</button>
           </a>
+          <?php 
+          //}
+          ?>
         </ul>
       </nav>
       <div id="nav-icon">

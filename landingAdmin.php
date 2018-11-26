@@ -1,4 +1,9 @@
 <?php
+session_start();
+include("conection.php");
+  if(!isset($_SESSION['inicio_sesion'])){
+header("location: login.php");	
+}
   $message = null;
 ?>
 <html>
@@ -33,19 +38,19 @@
                 if(0<mysqli_num_rows($resultados1)){
                 ?>
                   <div style="margin-top: 16px; background-color: gray; width:100%; display:flex; justify-content:space-between;">
-                   <div style="padding:8px; width:20%; border-color: black; border-width: 1px; border-style:solid;">
+                   <div style="padding:8px; width:20%; border-color: black; border-width: 1px; border-style:solid;text-transform:uppercase;">
                   	pedido
                    </div>
-                   <div style="padding:8px; width:20%; border-color: black; border-width: 1px; border-style:solid;">
+                   <div style="padding:8px; width:20%; border-color: black; border-width: 1px; border-style:solid;text-transform:uppercase;">
                   	descripcion
                    </div>
-                   <div style="padding:8px; width:20%; border-color: black; border-width: 1px; border-style:solid;">
+                   <div style="padding:8px; width:20%; border-color: black; border-width: 1px; border-style:solid;text-transform:uppercase;">
                   	cantidad
                    </div>
-                   <div style="padding:8px; width:20%; border-color: black; border-width: 1px; border-style:solid;">
+                   <div style="padding:8px; width:20%; border-color: black; border-width: 1px; border-style:solid;text-transform:uppercase;">
                   	estatus
                    </div>
-                   <div style="padding:8px; width:20%; border-color: black; border-width: 1px; border-style:solid;">
+                   <div style="padding:8px; width:20%; border-color: black; border-width: 1px; border-style:solid;text-transform:uppercase;">
                   	actualizar
                    </div>
                   </div>

@@ -23,9 +23,15 @@
               </div>
             </div>
             <?php
+session_start();
+include("conection.php");
+  if(!isset($_SESSION['inicio_sesion'])){
+header("location: login.php");	
+}
                 include("conection.php");
                 if(ISSET($_POST['settings'])){
-                $consultaX="SELECT * FROM pedidos";
+                $id = $_SESSION['NOMBRE'];
+                $consultaX="SELECT * FROM pedidos WHERE id_cliente = '$id'";
                 $resultados1=mysqli_query($con,$consultaX);
                 if(0<mysqli_num_rows($resultados1)){
                 ?>

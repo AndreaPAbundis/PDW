@@ -32,16 +32,16 @@
                 if(0<mysqli_num_rows($resultados1)){
                 ?>
                   <div style="margin-top: 16px; background-color: gray; width:100%; display:flex; justify-content:space-between;">
-                   <div style="padding:8px; width:25%; border-color: black; border-width: 1px; border-style:solid;">
+                   <div style="padding:8px; width:25%; border-color: black; border-width: 1px; border-style:solid;text-transform:uppercase;">
                   	nombre
                    </div>
-                   <div style="padding:8px; width:25%; border-color: black; border-width: 1px; border-style:solid;">
+                   <div style="padding:8px; width:25%; border-color: black; border-width: 1px; border-style:solid;text-transform:uppercase;">
                   	apellido
                    </div>
-                   <div style="padding:8px; width:25%; border-color: black; border-width: 1px; border-style:solid;">
+                   <div style="padding:8px; width:25%; border-color: black; border-width: 1px; border-style:solid;text-transform:uppercase;">
                   	mensaje
                    </div>
-                   <div style="padding:8px; width:25%; border-color: black; border-width: 1px; border-style:solid;">
+                   <div style="padding:8px; width:25%; border-color: black; border-width: 1px; border-style:solid;text-transform:uppercase;">
                   	email
                    </div>
                   </div>

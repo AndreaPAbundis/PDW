@@ -1,4 +1,9 @@
 <?php
+session_start();
+include("conection.php");
+  if(!isset($_SESSION['inicio_sesion'])){
+header("location: login.php");	
+}
     include("conection.php");
     $error = "";
     $success = "";
@@ -9,7 +14,8 @@
     $puesto=$_POST['puesto'];
     $email=$_POST['email'];
     $pass=$_POST['password'];
-
+    $id = $_SESSION['NOMBRE'];
+echo $id;
     $tamano = $_FILES["archivo"]['size'];
     $tipo = $_FILES["archivo"]['type'];
     $archivo = $_FILES["archivo"]['name'];
@@ -36,10 +42,9 @@
        puesto = '$puesto',
        rfc = '$rfc',
        email = '$email',
-       password = md5('$pass'),
-       id_emp = '',
+       password = '$pass',
        imagen = '$archivo'
-       WHERE nomina = 1";
+       WHERE nomina = '$id'";
       $resultado=mysqli_query($con,$consulta);
       if (!$resultado){
           $error = "No pudimos actualizar sus datos";
@@ -49,7 +54,7 @@
       }
     }
     else{
-        $error = "No pudimos actualizar sus datos";
+        $error = "Llene los campos";
     }
     //else
         //echo "<br> Operacion Correcta. <br>";

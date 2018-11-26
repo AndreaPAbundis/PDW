@@ -1,4 +1,9 @@
 <?php
+session_start();
+include("conection.php");
+  if(!isset($_SESSION['inicio_sesion'])){
+header("location: login.php");	
+}
     include("conection.php");
     $message=null;
     if(ISSET($_POST['signup'])){
@@ -12,8 +17,8 @@
         $registro ="SELECT email FROM empleados WHERE email = '$email'";
         $resultados=mysqli_query($con,$registro);
         if(0 == mysqli_num_rows($resultados)){
-          $consulta="INSERT into empleados (nomina, nombre, apellido, email, password, puesto, rfc, id_emp, imagen )
-           values ('', '$name', '$lastname', '$email', md5('$pass'), '$puesto', '$rfc', '', '')";
+          $consulta="INSERT into empleados (nomina, nombre, apellido, email, password, puesto, rfc, imagen )
+           values ('', '$name', '$lastname', '$email', '$pass', '$puesto', '$rfc', '')";
           $resultado=mysqli_query($con,$consulta);
           if (!$resultado){
             $message = "No se pudo registrar";
