@@ -9,6 +9,9 @@ if(ISSET($_POST['login'])){
   $resultadoAdmin=mysqli_query($con,$loginAdmin);
 	$countAdmin=mysqli_num_rows($resultadoAdmin);
   if(!empty($countAdmin)){
+	echo "<script> 
+        localStorage.setItem('type', 0);
+        </script>";
     header("refresh:1; url=landingAdmin.php");
   } else {
     $loginUser="SELECT * FROM cliente WHERE (email = '$email' AND password = '$pass')";
@@ -21,6 +24,9 @@ if(ISSET($_POST['login'])){
       $_SESSION['tipo_usuario'] = "usuario";
       $_SESSION['tipo_usuarioB'] = "usuario";
       $_SESSION['NOMBRE']=$tipo_u;
+      echo "<script> 
+        localStorage.setItem('type', 2);
+        </script>";
       header("refresh:1; url=landingUser.php");
     }
     else {
@@ -34,6 +40,9 @@ if(ISSET($_POST['login'])){
         $_SESSION['tipo_usuario'] = "admin";
         $_SESSION['tipo_usuarioA'] = "admin";
         $_SESSION['NOMBRE']=$tipo_a;
+        echo "<script> 
+        localStorage.setItem('type', 0);
+        </script>";
         header("refresh:1; url=landingAdmin.php");
       }
       else{

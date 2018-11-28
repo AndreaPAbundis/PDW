@@ -1,9 +1,12 @@
 <?php
 $BBDD_host="localhost";
-$BBDD_BBDD="id7967928_corporativo";
-$BBDD_user="id7967928_root";
-$BBDD_pass="98.12.08mercado";
-
+$BBDD_BBDD="corporativo";
+$BBDD_user="root";
+$BBDD_pass="";
+/*id7967928_corporativo
+id7967928_roo
+98.12.08mercado
+ */
 $con=mysqli_connect($BBDD_host,$BBDD_user,$BBDD_pass);
 if(mysqli_connect_errno()){
 echo "no se conecto";

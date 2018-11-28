@@ -25,6 +25,13 @@
             </div>
             <?php
                 include("conection.php");
+                echo "<script> 
+                var x = JSON.parse(localStorage.getItem('type'));
+                console.log(x);
+                if( x == 2) {
+                  location.href ='login.php';
+                }
+        </script>";	
                 if(ISSET($_POST['settings'])){
                 $name=$_POST['name'];
                 $consultaX="SELECT * FROM contacto WHERE nombre = '$name' OR apellido = '$name' OR email = '$name'";

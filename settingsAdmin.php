@@ -4,6 +4,13 @@ include("conection.php");
   if(!isset($_SESSION['inicio_sesion'])){
 header("location: login.php");	
 }
+echo "<script> 
+var x = JSON.parse(localStorage.getItem('type'));
+console.log(x);
+if( x == 2) {
+  location.href ='login.php';
+}
+        </script>";	
     include("conection.php");
     $error = "";
     $success = "";
