@@ -20,6 +20,9 @@ include("conection.php");
           <a href="contact.php">
             <li>CONTACTO</li>
           </a>
+          <a href="presentacion.php">
+            <li>PRESENTACION</li>
+          </a>
           <?php
            // if(isset($_SESSION['inicio_sesion'])){
           ?>
@@ -29,7 +32,7 @@ include("conection.php");
           <a href="signup.php">
             <button class="btn-outline">REGISTRARSE</button>
           </a>
-          <?php 
+          <?php
           //}
           ?>
         </ul>
