@@ -292,9 +292,6 @@ body {
     display: flex;
     max-width: 1108.8px; }
 
-div:last-child {
-  display: none !important; }
-
 .grid {
   display: flex;
   flex-direction: row;
