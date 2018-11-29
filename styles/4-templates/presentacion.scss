@@ -1,0 +1,25 @@
+.presentacion{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #eaeaea;
+  .presentacion_rapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    flex-direction: column;
+    align-items: center;
+    iframe{
+      margin: 32px 0;
+    }
+    a{
+      padding: 16px;
+      background-color: #505050;
+      width: 350px;
+      text-align: center;
+      margin: 32px 0;
+      color: #eaeaea;
+    }
+  }
+}
