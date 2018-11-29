@@ -15,10 +15,10 @@ if(ISSET($_POST['login'])){
     $_SESSION['tipo_usuario'] = "admin";
     $_SESSION['tipo_usuarioB'] = "admin";
     $_SESSION['NOMBRE']=$tipo_u;
+    header("refresh:1; url=landingAdmin.php");
 	echo "<script>
         localStorage.setItem('type', 0);
         </script>";
-    header("refresh:1; url=landingAdmin.php");
   } else {
     $loginUser="SELECT * FROM cliente WHERE (email = '$email' AND password = '$pass')";
     $resultadoUser=mysqli_query($con,$loginUser);
@@ -30,10 +30,10 @@ if(ISSET($_POST['login'])){
       $_SESSION['tipo_usuario'] = "usuario";
       $_SESSION['tipo_usuarioB'] = "usuario";
       $_SESSION['NOMBRE']=$tipo_u;
+    header("refresh:1; url=landingUser.php");
       echo "<script>
         localStorage.setItem('type', 2);
         </script>";
-      header("refresh:1; url=landingUser.php");
     }
     else{
       $error = "Este usuario no esta registrado";
