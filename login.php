@@ -7,9 +7,15 @@ if(ISSET($_POST['login'])){
   $pass=$_POST['password'];
   $loginAdmin="SELECT * FROM empleados WHERE (email = '$email' AND password = '$pass')";
   $resultadoAdmin=mysqli_query($con,$loginAdmin);
+  $row = mysqli_fetch_array($resultadoAdmin);
+  $tipo_u = $row['nomina'];
 	$countAdmin=mysqli_num_rows($resultadoAdmin);
   if(!empty($countAdmin)){
-	echo "<script> 
+    $_SESSION['inicio_sesion']='ceti';
+    $_SESSION['tipo_usuario'] = "admin";
+    $_SESSION['tipo_usuarioB'] = "admin";
+    $_SESSION['NOMBRE']=$tipo_u;
+	echo "<script>
         localStorage.setItem('type', 0);
         </script>";
     header("refresh:1; url=landingAdmin.php");
@@ -24,30 +30,13 @@ if(ISSET($_POST['login'])){
       $_SESSION['tipo_usuario'] = "usuario";
       $_SESSION['tipo_usuarioB'] = "usuario";
       $_SESSION['NOMBRE']=$tipo_u;
-      echo "<script> 
+      echo "<script>
         localStorage.setItem('type', 2);
         </script>";
       header("refresh:1; url=landingUser.php");
     }
-    else {
-      $loginAdmin="SELECT * FROM empleados WHERE (email = '$email' AND password = '$pass')";
-      $resultadoAdmin=mysqli_query($con,$loginAdmin);
-      $row = mysqli_fetch_array($resultadoAdmin);
-      $tipo_a = $row['nomina'];
-    	$countAdmin=mysqli_num_rows($resultadoAdmin);
-      if(!empty($countAdmin)){
-        $_SESSION['inicio_sesion']='ceti';
-        $_SESSION['tipo_usuario'] = "admin";
-        $_SESSION['tipo_usuarioA'] = "admin";
-        $_SESSION['NOMBRE']=$tipo_a;
-        echo "<script> 
-        localStorage.setItem('type', 0);
-        </script>";
-        header("refresh:1; url=landingAdmin.php");
-      }
-      else{
-        $error = "Este usuario no esta registrado";
-      }
+    else{
+      $error = "Este usuario no esta registrado";
     }
   }
 }

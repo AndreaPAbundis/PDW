@@ -2,15 +2,15 @@
 session_start();
 include("conection.php");
   if(!isset($_SESSION['inicio_sesion'])){
-header("location: login.php");	
+header("location: login.php");
 }
-    echo "<script> 
+    echo "<script>
     var x = JSON.parse(localStorage.getItem('type'));
     console.log(x);
-    if( x != 2 || x == 0) {
+    if( x != 2 ) {
       location.href ='login.php';
     }
-            </script>";	
+            </script>";
     $message=null;
     if(ISSET($_POST['signup'])){
       $pedido=$_POST['pedido'];
