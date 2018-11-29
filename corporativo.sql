@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-11-2018 a las 08:56:24
--- Versión del servidor: 10.1.26-MariaDB
--- Versión de PHP: 7.1.8
+-- Tiempo de generación: 29-11-2018 a las 01:16:01
+-- Versión del servidor: 10.1.32-MariaDB
+-- Versión de PHP: 7.2.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -46,8 +46,7 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`id_cliente`, `nombre`, `apellido`, `email`, `password`, `direccion`, `tel`, `rfc`, `empresa`, `imagen`) VALUES
-(3, 'inigo Navarrete', 'Navarrete', 'navarretigo@yahoo.com.mx', '123456789', 'Jorge Bravo', '3334750604', '222222', 'CETI ', 'MI CURRICULUM.PNG'),
-(4, 'inigo Navarrete', '', 'navarressstigo@yahoo.com.mx', '9f6e6800cfae7749eb6c486619254b9c', 'Jorge Bravo', '3334750604', 'sss', '', '');
+(1, 'Andrea', 'Abundis', 'lizbethabundis@hotmail.com', '12345', 'Periferico Norte', '3334750604', '123456789', 'ceti', '');
 
 -- --------------------------------------------------------
 
@@ -69,15 +68,7 @@ CREATE TABLE `contacto` (
 --
 
 INSERT INTO `contacto` (`id_contacto`, `nombre`, `apellido`, `email`, `tel`, `mensaje`) VALUES
-(1, 'inigo Navarrete', 'Navarrete', 'navarretigo@yahoo.com.mx', '3334750604', 'excelente\r\n'),
-(2, 'inigo Navarrete', 'Navarrete', 'navarretigo@yahoo.com.mx', '3334750604', 'excelente\r\n'),
-(3, 'inigo Navarrete', 'Navarrete', 'navarretigo@yahoo.com.mx', '3334750604', 'excelente\r\n'),
-(4, '', '', '', '', ''),
-(5, 'inigo Navarrete', 'Navarrete', 'navarretigo@yahoo.com.mx', '3334750604', 'sffd'),
-(6, 'inigo Navarrete', 'Navarrete', 'navarretigo@yahoo.com.mx', '3334750604', 'excelente'),
-(7, 'sdfsd', 'sfgsd', 'navarretigo@yahoo.com.mx', 'sdf', 'sdf'),
-(8, 'inigo Navarrete', 'Navarrete', 'navarretigo@yahoo.com.mx', '3334750604', 'exce'),
-(9, 'inigo Navarrete', 'Navarrete', 'navarretigo@yahoo.com.mx', '3334750604', 'excelente');
+(1, 'Andrea', 'Abundis', 'lizbethabundis@hotmail.com', '3334750604', 'Pedi un abrigo solo para recordarles');
 
 -- --------------------------------------------------------
 
@@ -101,12 +92,7 @@ CREATE TABLE `empleados` (
 --
 
 INSERT INTO `empleados` (`nomina`, `nombre`, `apellido`, `email`, `password`, `puesto`, `rfc`, `imagen`) VALUES
-(1, 'inigo Navarrete', 'Navarrete', 'navarretigo@yahoo.com.mx', '12345', 'dgf', 'dhgdg', ''),
-(2, 'Andrea', 'Abundis', 'lizbethabundis@hotmail.com', '12345', 'jefa', '5645645645', ''),
-(3, 'inigo Navarrete', 'Navarrete', 'navarretigo@yahoo.com.mx', 'sdsfsd', 'svsvsv', 'gfsfvv', 'MI CURRICULUM.PNG'),
-(4, 'inigo Navarrete', 'Navarrete', 'navarretigo@yahdoo.com.mx', 'd713e38281718ed2d493fdcfa44dac7e', 'sdsd', 'ssd', ''),
-(5, 'inigo Navarrete', 'Navarrete', 'navarretigo@yashdoo.com.mx', '9f6e6800cfae7749eb6c486619254b9c', 'sdsd', 'ssd', ''),
-(6, 'Andrea', 'Abundis', 'lizbethabundis@hotmail.coms', '123', 'a', 'a', '');
+(1, 'Inigo', 'Navarrete', 'navarretigo12@gmail.com', '12345', 'Administrador', '12345', '');
 
 -- --------------------------------------------------------
 
@@ -128,12 +114,7 @@ CREATE TABLE `pedidos` (
 --
 
 INSERT INTO `pedidos` (`id_pedido`, `id_cliente`, `pedido`, `descripcion`, `cantidad`, `estatus`) VALUES
-(1, 0, 'fgbdg', 'Descripciondbdfdfb', 444, 'terminados'),
-(2, 0, 'nada', 'un pan', 8, 'acabado'),
-(3, 1, 'eeee', 'Descripcioneeeee', 4444444, 'fhffffffff'),
-(4, 3, 'rhb', 'Descripcionfgnfgnf', 7777, ''),
-(5, 3, 'rhb', 'Descripcionfgnfgnf', 7777, ''),
-(6, 3, 'fffffffff', 'fffffffff', 555555, '');
+(1, 1, 'Abrigo', 'color negro talla mediana', 1, '');
 
 --
 -- Índices para tablas volcadas
@@ -171,22 +152,26 @@ ALTER TABLE `pedidos`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT de la tabla `contacto`
 --
 ALTER TABLE `contacto`
-  MODIFY `id_contacto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_contacto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT de la tabla `empleados`
 --
 ALTER TABLE `empleados`
-  MODIFY `nomina` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `nomina` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;COMMIT;
+  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
